@@ -1,0 +1,31 @@
+
+[
+  {
+    "id": 1,
+    "nama": "Laptop ASUS",
+    "kategori": "Elektronik",
+    "jumlah": 5,
+    "lokasi": "Ruang Lab"
+  },
+  {
+    "id": 2,
+    "nama": "Mouse Logitech",
+    "kategori": "Aksesoris",
+    "jumlah": 12,
+    "lokasi": "Ruang Lab"
+  },
+  {
+    "id": 3,
+    "nama": "Kursi Kantor",
+    "kategori": "Furniture",
+    "jumlah": 20,
+    "lokasi": "Ruang Kerja"
+  },
+  {
+    "id": 4,
+    "nama": "Buku Pemrograman",
+    "kategori": "Buku",
+    "jumlah": 8,
+    "lokasi": "Perpustakaan"
+  }
+]

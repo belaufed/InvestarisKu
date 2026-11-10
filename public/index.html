@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InventarisKu - Manajemen Barang</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">📦</span>
+        <span>Inventaris<span class="accent">Ku</span></span>
+      </div>
+
+      <div class="menu-title">MENU UTAMA</div>
+      <div class="menu-item active">▦ &nbsp; Dashboard</div>
+      <div class="menu-item">▤ &nbsp; Data Barang</div>
+
+      <div class="sidebar-footer">
+        InventarisKu v1.0
+        <br />
+        Express.js CRUD Project
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="breadcrumb">Manajemen Inventaris / Dashboard</p>
+          <h1>Dashboard Inventaris</h1>
+          <p class="subtitle">
+            Kelola dan pantau data barang dengan mudah.
+          </p>
+        </div>
+        <div class="avatar">IK</div>
+      </header>
+
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-icon blue">📦</div>
+          <div>
+            <p>Total Jenis Barang</p>
+            <h2 id="totalJenis">0</h2>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon purple">▦</div>
+          <div>
+            <p>Total Stok Barang</p>
+            <h2 id="totalStok">0</h2>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">✓</div>
+          <div>
+            <p>Status Sistem</p>
+            <h2 class="status-online">Aktif</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <div class="section-header">
+          <div>
+            <h2>Data Inventaris Barang</h2>
+            <p>Daftar seluruh barang yang tercatat dalam sistem.</p>
+          </div>
+
+          <button class="btn btn-primary" id="tambahBtn">
+            + Tambah Barang
+          </button>
+        </div>
+
+        <div class="toolbar">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="🔍 Cari nama, kategori, atau lokasi..."
+          />
+          <span id="jumlahData">0 data ditemukan</span>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama Barang</th>
+                <th>Kategori</th>
+                <th>Jumlah</th>
+                <th>Lokasi</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tabelBarang">
+              <tr>
+                <td colspan="6" class="empty">
+                  Memuat data...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        © 2026 InventarisKu — Website CRUD menggunakan Express.js
+      </footer>
+    </main>
+  </div>
+
+  <div class="modal-overlay hidden" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle">Tambah Barang</h2>
+          <p>Lengkapi informasi barang di bawah ini.</p>
+        </div>
+        <button class="close-btn" id="closeBtn">&times;</button>
+      </div>
+
+      <form id="barangForm">
+        <input type="hidden" id="barangId" />
+
+        <div class="form-group">
+          <label for="nama">Nama Barang</label>
+          <input
+            id="nama"
+            type="text"
+            placeholder="Contoh: Laptop ASUS"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="kategori">Kategori</label>
+          <select id="kategori" required>
+            <option value="">Pilih kategori</option>
+            <option value="Elektronik">Elektronik</option>
+            <option value="Aksesoris">Aksesoris</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Buku">Buku</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jumlah">Jumlah</label>
+            <input
+              id="jumlah"
+              type="number"
+              min="0"
+              placeholder="0"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lokasi">Lokasi</label>
+            <input
+              id="lokasi"
+              type="text"
+              placeholder="Contoh: Ruang Lab"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="batalBtn">
+            Batal
+          </button>
+          <button type="submit" class="btn btn-primary" id="simpanBtn">
+            Simpan Barang
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
